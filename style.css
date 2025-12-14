@@ -1,0 +1,229 @@
+:root {
+            --bg: #0a0a0b;
+            --surface: #121214;
+            --surface-light: #1c1c1f;
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --accent: #f59e0b;
+            --text: #ffffff;
+            --text-secondary: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- BACKGROUND --- */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .grid-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg) 80%);
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+        .mono { font-family: 'JetBrains Mono', monospace; color: var(--primary); font-size: 0.9rem; letter-spacing: 1px; }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin: 1rem 0;
+            color: #94a3b8;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero p { max-width: 600px; color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -10px var(--primary-glow); }
+        .btn.outline { background: transparent; border: 1px solid var(--border); margin-left: 1rem; }
+        .btn.outline:hover { border-color: var(--text); background: rgba(255,255,255,0.05); box-shadow: none; }
+
+        /* --- SECTIONS --- */
+        section { padding: 6rem 10%; }
+        .section-header { margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+
+        /* --- SHARED CARD STYLES --- */
+        .card-content { flex-grow: 1; display: flex; flex-direction: column; width: 100%; }
+        
+        .card-action-row {
+            margin-top: auto; 
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            width: 100%;
+        }
+        
+        .btn-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s ease, color 0.2s;
+        }
+        
+        .btn-link:hover { gap: 0.8rem; color: #fff; }
+
+        /* --- BOOKS SECTION --- */
+        .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+
+        .book-card {
+            background: var(--surface);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        .book-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .book-cover {
+            width: 160px; height: 240px; background: #1a1a1a; margin-bottom: 1.5rem;
+            border-radius: 2px; box-shadow: -5px 5px 15px rgba(0,0,0,0.5); overflow: hidden;
+        }
+        .book-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .book-card:hover .book-cover img { transform: scale(1.05); }
+        .book-tag { background: rgba(245, 158, 11, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem; display: inline-block; }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .project-card:hover { border-color: var(--primary); background: var(--surface-light); }
+        .project-icon { font-size: 2rem; margin-bottom: 1rem; color: var(--primary); }
+        .project-title { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text); }
+        .project-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .tech-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 4px 8px; background: rgba(255,255,255,0.05); border-radius: 4px; color: var(--text-secondary); }
+
+        /* --- SKILLS --- */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .skill-item { border: 1px solid var(--border); padding: 10px 20px; border-radius: 4px; font-weight: 500; transition: 0.3s; }
+        .skill-item:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
+
+        /* --- FOOTER --- */
+        footer { padding: 4rem 10%; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); }
+
+        /* --- ANIMATIONS --- */
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+
+        /* --- MOBILE FIXES --- */
+        @media (max-width: 768px) {
+            /* Fix Navigation */
+            nav { flex-direction: column; padding: 1.5rem 5%; gap: 1rem; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; width: 100%; }
+            
+            /* Fix Hero Overlap */
+            /* We add top padding to clear the navigation and align content from the top */
+            .hero { 
+                padding-top: 180px; 
+                justify-content: flex-start; 
+                gap: 1.5rem;
+                min-height: auto; /* Allow natural flow */
+                padding-bottom: 4rem;
+            }
+            
+            /* Adjust General Section Padding */
+            section { padding-left: 1.5rem; padding-right: 1.5rem; }
+            
+            /* Fix Hero Title Size on Small Screens */
+            .hero h1 { font-size: 2.5rem; }
+            
+            /* Fix Buttons */
+            .btn { width: 100%; text-align: center; margin-left: 0; margin-top: 1rem; }
+            .btn.outline { margin-left: 0; }
+        }
