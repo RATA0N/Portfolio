@@ -6,158 +6,193 @@
     <title>Ratandeep | Engineer & Author</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="grid-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="noise"></div>
 
-    <nav>
-        <div class="logo">RATANDEEP<span style="color:var(--primary)">CHOUDHARY</span></div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#books">Books</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-        </div>
-    </nav>
+    <div class="toast-container" id="toastContainer"></div>
 
-    <section class="hero">
-        <span class="mono reveal-up">/// ELECTRICAL ENGINEER & AUTHOR</span>
-        <h1 class="reveal-up" style="transition-delay: 100ms">Designed to Dominate.</h1>
-        <h2 class="reveal-up" style="transition-delay: 150ms"><B>RATANDEEP CHOUDHARY</B></h2>
-        <p class="reveal-up" style="transition-delay: 200ms">
-            I am a final year Electrical Engineering student, published co-author of two books, and a web developer bridging the gap between physical systems and digital interfaces.
-        </p>
-        <div class="reveal-up" style="transition-delay: 300ms">
-            <a href="#projects" class="btn">View Engineering</a>
-            <a href="#books" class="btn outline">View Publications</a>
-        </div>
-    </section>
+    <div class="content-wrap">
+        <nav id="mainNav">
+            <a href="https://rata0n.github.io/Portfolio/" class="logo">RATANDEEP<span class="logo-accent">CHOUDHARY</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
 
-    <section id="books">
-        <div class="section-header reveal-up">
-            <span class="mono">01. PUBLICATIONS</span>
-            <h2>Published Works</h2>
-            <p style="color: var(--text-secondary)">Exploring concepts through written words.</p>
-        </div>
-        <div class="books-grid">
-            <div class="book-card reveal-up">
-                <span class="book-tag">Open Access Edition</span>
-                <div class="book-cover">
-                    <img src="https://github.com/RATA0N/MY-WEBSITE/blob/main/assets/Fundamentals_of_Power_Open_Access_Edition-001.webp?raw=true" alt="Book 1 Cover" onerror="this.src='https://placehold.co/160x240/1a1a1a/FFF?text=Book+Cover'">
-                </div>
-                <div class="card-content">
-                    <h3 class="project-title">First Principles of POWER</h3>
-                    <p class="project-desc">A deep dive into Load division and calculation. This book explores the fundamental principles of modern power distribution.</p>
-                </div>
-                <div class="card-action-row">
-                    <a href="#" class="btn-link">Read Online &rarr;</a>
-                </div>
+        <section class="hero" id="about">
+            <h1 class="reveal-up" style="transition-delay: 100ms">Ratandeep <span class="dim">Choudhary</span></h1>
+            <h2 class="reveal-up" style="transition-delay: 150ms"><strong>///Electrical Engineer & Co-Author</strong></h2>
+            <p class="reveal-up" style="transition-delay: 200ms">
+                I am a final year Electrical Engineering student, published co-author of two books, and a web developer bridging the gap between physical systems and digital interfaces.
+            </p>
+            <div class="hero-actions reveal-up" style="transition-delay: 300ms">
+                <a href="#projects" class="btn">View Engineering <i class="fas fa-arrow-right" style="font-size:0.8rem"></i></a>
+                <a href="#books" class="btn outline">View Publications</a>
             </div>
+            <div class="hero-line"></div>
+            
+        </section>
 
-            <div class="book-card reveal-up" style="transition-delay: 100ms">
-                <span class="book-tag">Upcoming</span>
-                <div class="book-cover">
-                    <img src="https://github.com/RATA0N/MY-WEBSITE/blob/main/assets/ascentia.webp?raw=true" alt="Book 2 Cover" onerror="this.src='https://placehold.co/160x240/1a1a1a/FFF?text=Book+Cover'">
-                </div>
-                <div class="card-content">
-                    <h3 class="project-title">Ascentia SCI Lab</h3>
-                    <p class="project-desc">A comprehensive guide to SCI Lab. Focusing on practical applications and theory.</p>
-                </div>
-                <div class="card-action-row">
-                    <a href="#" class="btn-link">Read Excerpt &rarr;</a>
-                </div>
+        <div class="section-divider"></div>
+
+        <section id="books">
+            <div class="section-header reveal-up">
+                <span class="mono">01. PUBLICATIONS</span>
+                <h2>Published Works</h2>
+                <p>Exploring concepts through written words.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="section-header reveal-up">
-            <span class="mono">02. ENGINEERING & DEV</span>
-            <h2>Featured Projects</h2>
-        </div>
-        
-        <div class="projects-grid">
-            <div class="project-card reveal-up">
-                <div class="card-content">
-                    <div class="project-icon">⚡</div>
-                    <h3 class="project-title">Research Project (Final Year)</h3>
-                    <p class="project-desc">
-                        An advanced research-based electrical system focusing on automation and efficiency. Includes hardware prototyping.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-pill">IoT</span>
-                        <span class="tech-pill">Microcontrollers</span>
-                        <span class="tech-pill">C++</span>
+            <div class="books-grid">
+                <div class="book-card reveal-up">
+                    <span class="book-tag">Open Access Edition</span>
+                    <div class="book-cover">
+                        <img src="https://github.com/RATA0N/MY-WEBSITE/blob/main/assets/Fundamentals_of_Power_Open_Access_Edition-001.webp?raw=true" alt="First Principles of Power book cover" onerror="this.src='https://placehold.co/150x225/161614/8a8578?text=Book+Cover'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="project-title">First Principles of POWER</h3>
+                        <p class="project-desc">A deep dive into Load division and calculation. This book explores the fundamental principles of modern power distribution.</p>
+                    </div>
+                    <div class="card-action-row">
+                        <a href="https://drive.google.com/file/d/1yP7YJvRbtk_UkjPMzk_53zntyQsPNSKb/view" class="btn-link">Read Online <i class="fas fa-arrow-right" style="font-size:0.75rem"></i></a>
                     </div>
                 </div>
-                <div class="card-action-row">
-                    <a href="https://rata0n.github.io/The-Final-Project/" class="btn-link">Visit Site &rarr;</a>
-                </div>
-            </div>
 
-            <div class="project-card reveal-up" style="transition-delay: 100ms">
-                <div class="card-content">
-                    <div class="project-icon">🌐</div>
-                    <h3 class="project-title">Modern Web Applications</h3>
-                    <p class="project-desc">
-                        Full-stack web development projects focusing on responsive design, performance, and user experience.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-pill">React</span>
-                        <span class="tech-pill">Node.js</span>
-                        <span class="tech-pill">Tailwind</span>
+                <div class="book-card reveal-up" style="transition-delay: 100ms">
+                    <span class="book-tag">Alpha Edition</span>
+                    <div class="book-cover">
+                        <img src="https://github.com/RATA0N/MY-WEBSITE/blob/main/assets/ascentia.webp?raw=true" alt="Ascentia SCI Lab book cover" onerror="this.src='https://placehold.co/150x225/161614/8a8578?text=Book+Cover'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="project-title">Ascentia SCI Lab</h3>
+                        <p class="project-desc">A comprehensive guide to SCI Lab. Focusing on practical applications and theory.</p>
+                    </div>
+                    <div class="card-action-row">
+                        <a href="https://drive.google.com/file/d/1qH4FKKU5yCWySrBiklzZaCsTiHuOFI5l/view" class="btn-link">Read Excerpt <i class="fas fa-arrow-right" style="font-size:0.75rem"></i></a>
                     </div>
                 </div>
-                <div class="card-action-row">
-                    <a href="https://sdee001.github.io/EE-Collective/" class="btn-link">View Demo &rarr;</a>
-                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="projects">
+            <div class="section-header reveal-up">
+                <span class="mono">02. ENGINEERING & DEV</span>
+                <h2>Featured Projects</h2>
             </div>
 
-            <div class="project-card reveal-up" style="transition-delay: 200ms">
-                <div class="card-content">
-                    <div class="project-icon">📡</div>
-                    <h3 class="project-title">Circuit Simulation</h3>
-                    <p class="project-desc">
-                        Simulation and analysis of complex power systems and control circuits using industry-standard software.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-pill">MATLAB</span>
-                        <span class="tech-pill">Proteus</span>
-                        <span class="tech-pill">AutoCAD</span>
+            <div class="projects-grid">
+
+                <!-- Final Year Project -->
+                <div class="project-card reveal-up">
+                    <div class="project-thumb">
+                        <img src="https://github.com/RATA0N/Portfolio/blob/main/assets/Apex%20Security.webp?raw=true" alt="Final Year Research Project preview" loading="lazy">
+                        <div class="thumb-overlay"></div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-icon-inline"><span>⚡</span></div>
+                        <h3 class="project-title">Research Project (Final Year)</h3>
+                        <p class="project-desc">An advanced research-based electrical system focusing on automation and efficiency. Includes hardware prototyping and real-world implementation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-pill">IoT</span>
+                            <span class="tech-pill">Microcontrollers</span>
+                            <span class="tech-pill">C++</span>
+                        </div>
+                        <div class="card-action-row">
+                            <a href="https://the-joint-thesis.github.io/Apex-Security/" class="btn-link" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right" style="font-size:0.75rem"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="card-action-row">
-                    <a href="#" class="btn-link">View Analysis &rarr;</a>
+
+                <!-- EE Collective -->
+                <div class="project-card reveal-up" style="transition-delay: 100ms">
+                    <div class="project-thumb">
+                        <img src="https://github.com/RATA0N/Portfolio/blob/main/assets/EE%20Collective%20Logo.webp?raw=true" alt="EE Collective platform preview" loading="lazy">
+                        <div class="thumb-overlay"></div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-icon-inline"><span>🌐</span></div>
+                        <h3 class="project-title">EE Collective</h3>
+                        <p class="project-desc">The official web platform for our published book — a digital space where published works and EE resources are accessible to students and readers.</p>
+                        <div class="tech-stack">
+                            <span class="tech-pill">HTML5</span>
+                            <span class="tech-pill">CSS3</span>
+                            <span class="tech-pill">Publishing</span>
+                        </div>
+                        <div class="card-action-row">
+                            <a href="https://the-joint-thesis.github.io/EE-Collective/" class="btn-link" target="_blank" rel="noopener">Visit EE Collective <i class="fas fa-arrow-right" style="font-size:0.75rem"></i></a>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Phase Shift -->
+                <div class="project-card reveal-up" style="transition-delay: 200ms">
+                    <div class="project-thumb">
+                        <img src="https://github.com/RATA0N/Portfolio/blob/main/assets/logo.webp?raw=true" alt="Phase Shift platform preview" loading="lazy">
+                        <div class="thumb-overlay"></div>
+                    </div>
+                    <div class="project-body">
+                        <div class="founder-badge"><i class="fas fa-bolt"></i> Founder</div>
+                        <h3 class="project-title">Phase Shift</h3>
+                        <p class="project-desc">A college-level platform I founded to empower juniors through collaborative project work and structured process enhancement with mentorship.</p>
+                        <div class="tech-stack">
+                            <span class="tech-pill">Leadership</span>
+                            <span class="tech-pill">Web Platform</span>
+                            <span class="tech-pill">Community</span>
+                        </div>
+                        <div class="card-action-row">
+                            <a href="https://the-joint-thesis.github.io/Phase-Shift/" class="btn-link" target="_blank" rel="noopener">Visit Phase Shift <i class="fas fa-arrow-right" style="font-size:0.75rem"></i></a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills">
-        <div class="section-header reveal-up">
-            <span class="mono">03. EXPERTISE</span>
-            <h2>Technical Skills</h2>
-        </div>
-        <div class="skills-container reveal-up">
-            <div class="skill-item">Electrical Engineering</div>
-            <div class="skill-item">Circuit Design</div>
-            <div class="skill-item">IoT & Robotics</div>
-            <div class="skill-item">Research & Writing</div>
-            <div class="skill-item">Web Development</div>
-            <div class="skill-item">HTML5 & CSS3</div>
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">Technical Documentation</div>
-        </div>
-    </section>
+        <div class="section-divider"></div>
 
-    <footer>
-        <p class="mono">© 2025 RATANDEEP. ALL RIGHTS RESERVED.</p>
-        <p style="font-size: 0.8rem; margin-top: 1rem; color: #555;">Designed with clean code & modern principles.</p>
-    </footer>
+        <section id="skills">
+            <div class="section-header reveal-up">
+                <span class="mono">03. EXPERTISE</span>
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-container reveal-up" style="transition-delay: 100ms">
+                <div class="skill-item">Electrical Engineering</div>
+                <div class="skill-item">Circuit Design</div>
+                <div class="skill-item">IoT & Robotics</div>
+                <div class="skill-item">Research & Writing</div>
+                <div class="skill-item">Web Development</div>
+                <div class="skill-item">HTML5 & CSS3</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Technical Documentation</div>
+                <div class="skill-item">Leadership</div>
+                <div class="skill-item">Community Building</div>
+            </div>
+        </section>
 
+        <footer>
+            <p class="mono">© 2025 RATANDEEP. ALL RIGHTS RESERVED.</p>
+            <p class="sub-note">Designed with clean code & modern principles.</p>
+            <div class="footer-links">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
