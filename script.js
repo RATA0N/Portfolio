@@ -1,16 +1,61 @@
-  const revealElements = document.querySelectorAll('.reveal-up');
+       const revealElements = document.querySelectorAll('.reveal-up');
 
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
-            const elementVisible = 50; 
-
-            revealElements.forEach((reveal) => {
-                const elementTop = reveal.getBoundingClientRect().top;
+            const elementVisible = 60;
+            revealElements.forEach((el) => {
+                const elementTop = el.getBoundingClientRect().top;
                 if (elementTop < windowHeight - elementVisible) {
-                    reveal.classList.add('active');
+                    el.classList.add('active');
                 }
             });
         };
 
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
+
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            navLinks.classList.toggle('open', menuOpen);
+            menuToggle.innerHTML = menuOpen
+                ? '<i class="fas fa-xmark"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (menuOpen) {
+                    menuOpen = false;
+                    navLinks.classList.remove('open');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        function showToast(message, icon = 'fa-circle-check') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            }, 3200);
+        }
+
+        document.querySelectorAll('.btn-link[href="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showToast('This link will be available soon.', 'fa-clock');
+            });
+        });
