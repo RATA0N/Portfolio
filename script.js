@@ -1,64 +1,213 @@
-// Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal-up');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            const elementVisible = 60;
-            revealElements.forEach((el) => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratandeep | Engineer & Author</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        // Navbar Scroll Effect
-        const nav = document.getElementById('mainNav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 60);
-        });
+    <div class="grid-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="noise"></div>
 
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        let menuOpen = false;
+    <div class="content-wrap">
+        <nav id="mainNav">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-bolt text-primary"></i>
+                    RATANDEEP<span></span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
 
-        menuToggle.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            navLinks.classList.toggle('open', menuOpen);
-            menuToggle.innerHTML = menuOpen
-                ? '<i class="fas fa-xmark"></i>'
-                : '<i class="fas fa-bars"></i>';
-        });
+        <header class="hero">
+            <div class="hero-content reveal-up">
+                <div class="mono">/// Electrical Engineer & Co-Author</div>
+                <h1>Ratandeep <span class="text-gradient">Choudhary</span></h1>
+                <h2>Bridging the gap between physical systems and digital interfaces.</h2>
+                <p>
+                    I am a final year Electrical Engineering student, published co-author of two books, and a web developer focused on creating robust technical solutions.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn">View Engineering <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#books" class="btn outline">View Publications</a>
+                </div>
+            </div>
 
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (menuOpen) {
-                    menuOpen = false;
-                    navLinks.classList.remove('open');
-                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-        });
+            <div class="hero-image reveal-up">
+                <div class="profile-frame">
+                    <img src="https://github.com/RATA0N/MY-WEBSITE/blob/main/assets/RATAN.webp?raw=true" alt="Ratandeep Choudhary">
+                    <div class="status-badge">
+                        <div class="status-dot"></div>
+                        Final Year Student
+                    </div>
+                </div>
+            </div>
+        </header>
 
-        // Toast Notification System
-        function showToast(message, icon = 'fa-circle-check') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
-            container.appendChild(toast);
-            setTimeout(() => {
-                toast.classList.add('out');
-                setTimeout(() => toast.remove(), 300);
-            }, 3200);
-        }
+        <section id="books">
+            <div class="section-header reveal-up">
+                <div class="mono">01. PUBLICATIONS</div>
+                <h2>Published Works</h2>
+                <p>Exploring concepts through written words. Deep dives into power distribution and laboratory applications.</p>
+            </div>
+            
+            <div class="books-grid">
+                <a href="https://drive.google.com/file/d/1yP7YJvRbtk_UkjPMzk_53zntyQsPNSKb/view" target="_blank" class="book-card reveal-up">
+                    <div class="book-tag">Open Access Edition</div>
+                    <div class="book-cover">
+                        <img src="https://github.com/RATA0N/MY-WEBSITE/blob/main/assets/Fundamentals_of_Power_Open_Access_Edition-001.webp?raw=true" alt="First Principles of Power">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="project-title">First Principles of POWER</h3>
+                        <p class="project-desc">A deep dive into Load division and calculation. This book explores the fundamental principles of modern power distribution systems.</p>
+                    </div>
+                    <div class="card-action-row">
+                        <span class="btn-link">Read Online <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </a>
 
-        document.querySelectorAll('.btn-link[href="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                showToast('This link will be available soon.', 'fa-clock');
-            });
-        });
+                <a href="https://drive.google.com/file/d/1qH4FKKU5yCWySrBiklzZaCsTiHuOFI5l/view" target="_blank" class="book-card reveal-up">
+                    <div class="book-tag">Alpha Edition</div>
+                    <div class="book-cover">
+                        <img src="https://github.com/RATA0N/MY-WEBSITE/blob/main/assets/ascentia.webp?raw=true" alt="Ascentia SCI Lab">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="project-title">Ascentia SCI Lab</h3>
+                        <p class="project-desc">A comprehensive guide to SCI Lab. Focusing on practical applications, laboratory protocols, and theoretical underpinnings.</p>
+                    </div>
+                    <div class="card-action-row">
+                        <span class="btn-link">Read Excerpt <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="projects">
+            <div class="section-header reveal-up">
+                <div class="mono">02. ENGINEERING & DEV</div>
+                <h2>Featured Projects</h2>
+                <p>Selected works ranging from hardware research to community platforms.</p>
+            </div>
+
+            <div class="projects-grid">
+                <a href="https://the-joint-thesis.github.io/Apex-Security/" target="_blank" class="project-card reveal-up">
+                    <div class="project-thumb">
+                        <img src="https://github.com/RATA0N/Portfolio/blob/main/assets/Apex%20Security.webp?raw=true" alt="Apex Security">
+                    </div>
+                    <div class="project-body">
+                        <div class="founder-badge"><i class="fa-solid fa-bolt"></i> Research Project</div>
+                        <h3 class="project-title">Apex Security System</h3>
+                        <p class="project-desc">An advanced research-based electrical system focusing on automation and efficiency.</p>
+                        <div class="tech-stack">
+                            <span class="tech-pill">IoT</span>
+                            <span class="tech-pill">Microcontrollers</span>
+                            <span class="tech-pill">C++</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row-project">
+                        <span class="btn-link">Visit Site <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://the-joint-thesis.github.io/EE-Collective/" target="_blank" class="project-card reveal-up">
+                    <div class="project-thumb">
+                        <img src="https://github.com/RATA0N/Portfolio/blob/main/assets/EE%20Collective%20Logo.webp?raw=true" alt="EE Collective">
+                    </div>
+                    <div class="project-body">
+                        <div class="founder-badge"><i class="fa-solid fa-globe"></i> Digital Platform</div>
+                        <h3 class="project-title">EE Collective</h3>
+                        <p class="project-desc">The official web platform for our published book — a digital space for EE resources.</p>
+                        <div class="tech-stack">
+                            <span class="tech-pill">HTML5</span>
+                            <span class="tech-pill">CSS3</span>
+                            <span class="tech-pill">Publishing</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row-project">
+                        <span class="btn-link">Visit Collective <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://the-joint-thesis.github.io/Phase-Shift/" target="_blank" class="project-card reveal-up">
+                    <div class="project-thumb">
+                        <img src="https://github.com/RATA0N/Portfolio/blob/main/assets/logo.webp?raw=true" alt="Phase Shift">
+                    </div>
+                    <div class="project-body">
+                        <div class="founder-badge"><i class="fa-solid fa-crown"></i> Founder</div>
+                        <h3 class="project-title">Phase Shift</h3>
+                        <p class="project-desc">A college-level platform I founded to empower juniors through collaborative project work.</p>
+                        <div class="tech-stack">
+                            <span class="tech-pill">Leadership</span>
+                            <span class="tech-pill">Web Platform</span>
+                            <span class="tech-pill">Community</span>
+                        </div>
+                    </div>
+                    <div class="card-action-row-project">
+                        <span class="btn-link">Visit Phase Shift <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="skills">
+            <div class="section-header reveal-up">
+                <div class="mono">03. EXPERTISE</div>
+                <h2>Technical Skills</h2>
+                <p>A diverse toolkit spanning hardware engineering and modern web development.</p>
+            </div>
+            <div class="skills-container reveal-up">
+                <div class="skill-item">Electrical Engineering</div>
+                <div class="skill-item">Circuit Design</div>
+                <div class="skill-item">IoT & Robotics</div>
+                <div class="skill-item">Research & Writing</div>
+                <div class="skill-item">Web Development</div>
+                <div class="skill-item">HTML5 & CSS3</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Technical Documentation</div>
+                <div class="skill-item">Leadership</div>
+                <div class="skill-item">Community Building</div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <div class="footer-container">
+                <a href="#" class="logo" style="font-size: 1.3rem; margin-bottom: 10px;">
+                    RATANDEEP<span>.DEV</span>
+                </a>
+                <p class="mono">© 2026 RATANDEEP. ALL RIGHTS RESERVED.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/RATA0N" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="mailto:contact@ratandeep.dev"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="script.js"></script>
+</body>
+</html>
