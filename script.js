@@ -1,5 +1,5 @@
-       const revealElements = document.querySelectorAll('.reveal-up');
-
+// Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal-up');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
             const elementVisible = 60;
@@ -10,15 +10,16 @@
                 }
             });
         };
-
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
+        // Navbar Scroll Effect
         const nav = document.getElementById('mainNav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         });
 
+        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         let menuOpen = false;
@@ -31,6 +32,7 @@
                 : '<i class="fas fa-bars"></i>';
         });
 
+        // Close menu when clicking a link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (menuOpen) {
@@ -41,6 +43,7 @@
             });
         });
 
+        // Toast Notification System
         function showToast(message, icon = 'fa-circle-check') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
